@@ -23,7 +23,7 @@ class minecraft (
   }
   file {"${minecraft_dir}/minecraft_server.1.12.2.jar":
     ensure => file,
-    source => $url,
+    source => $minecraft_url,
     before => Service['minecraft'],
   }
   file {"${minecraft_dir}/eula.txt":
