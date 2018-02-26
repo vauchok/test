@@ -11,8 +11,10 @@ class minecraft (
     source => $url,
     before => Service['minecraft'],
   }
-  class { 'java' :
-    package => 'java-1.8.0-openjdk-devel',
+  java::oracle { 'jdk8' :
+    ensure  => 'present',
+    version => '8',
+    java_se => 'jdk',
   }
   file {"${minecraft_dir}/eula.txt":
     ensure => file,
