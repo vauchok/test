@@ -1,16 +1,18 @@
 class minecraft (
-  $url = 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar',
+  $minecraft_url = 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar',
   $minecraft_dir = '/opt/minecraft',
+  $epel7_url = 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
+  $epel7_dir = '/tmp/epel-release-latest-7.noarch.rpm',
 ){
-  file {'/tmp/epel-release-latest-7.noarch.rpm':
+  file {$epel7_dir:
     ensure => file,
-    source => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
+    source => $epel7_url,
   }
   package {'epel-release-7':
     provider => 'rpm',
     install_options => ['-ivh'],
     ensure => 'present',
-    source => '/tmp/epel-release-latest-7.noarch.rpm',
+    source => $epel7_dir,
     before => Package['java'],
   }
   file {$minecraft_dir:
