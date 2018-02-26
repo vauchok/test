@@ -2,7 +2,6 @@ class minecraft (
   $url = 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar',
   $minecraft_dir = '/opt/minecraft',
 ){
-  include java
   file {$minecraft_dir:
     ensure => directory,
   }
