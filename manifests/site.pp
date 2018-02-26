@@ -8,7 +8,7 @@ node 'master.puppet.vm' {
   }
 }
 
-node 'minecraft.puppet.vm' {
+node 'minetest.puppet.vm' {
   include role::minecraft_server
 }
 
