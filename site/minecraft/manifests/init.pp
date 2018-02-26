@@ -4,7 +4,7 @@ class minecraft (
   $epel7_url = 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
   $epel7_dir = '/tmp/epel-release-latest-7.noarch.rpm',
 ){
-  file {$epel7_dir:
+  file {"${epel7_dir}":
     ensure => file,
     source => $epel7_url,
   }
@@ -15,7 +15,7 @@ class minecraft (
     source => $epel7_dir,
     before => Package['java'],
   }
-  file {$minecraft_dir:
+  file {"${minecraft_dir}":
     ensure => directory,
   }
   package {'java':
