@@ -2,6 +2,7 @@ class minecraft (
   $url = 'https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar',
   $minecraft_dir = '/opt/minecraft',
 ){
+  include java
   file {$minecraft_dir:
     ensure => directory,
   }
@@ -10,8 +11,8 @@ class minecraft (
     source => $url,
     before => Service['minecraft'],
   }
-  package {'java':
-    ensure => present,
+  class { 'java' :
+    package => 'java-1.8.0-openjdk-devel',
   }
   file {"${minecraft_dir}/eula.txt":
     ensure => file,
