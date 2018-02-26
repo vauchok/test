@@ -11,7 +11,7 @@ class minecraft (
     install_options => ['-ivh'],
     ensure => 'present',
     source => '/tmp/epel-release-latest-7.noarch.rpm',
-    before => Package['java']
+    before => Package['java'],
   }
   file {$minecraft_dir:
     ensure => directory,
