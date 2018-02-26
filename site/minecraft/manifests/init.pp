@@ -4,7 +4,7 @@ class minecraft (
 ){
   file {'/tmp/epel-release-latest-7.noarch.rpm':
     ensure => file,
-    source => https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm,
+    source => 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm',
   }
   package {'epel-release-7':
     provider => 'rpm',
