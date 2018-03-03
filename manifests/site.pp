@@ -1,5 +1,7 @@
 node 'puppet2' {
   hiera_include(classes)
+}
+node 'agent.puppet.vm' {
   class { 'apache':
     mpm_module => 'prefork',
   }
