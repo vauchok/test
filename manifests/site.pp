@@ -8,6 +8,6 @@ node 'puppet2' {
   class { 'postgresql::server': }
 
   class { 'zabbix':
-    zabbix_url    => 'puppet2',
+    zabbix_url    => 'zabbix.example.com',
   }
 }
