@@ -1,3 +1,3 @@
 node 'puppet2' {
-  include role::role_test
+  include role::hiera('role_value')
 }
